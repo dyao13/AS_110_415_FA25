@@ -1,0 +1,136 @@
+\documentclass[12pt]{article}
+
+\usepackage{preamble}
+
+\begin{document}
+
+\newpage \maketitle
+
+\newpage \tableofcontents
+
+\newpage \newsection{Introduction}
+
+\subsection{Section.} Introduction.
+
+\newpage \newsection{The real numbers.}
+
+\subsection{Section.} The real numbers.
+
+\subsection{Definition.} Denote the natural numbers $\N$, the integers $\Z$, and the rational numbers $\Q$.
+
+\subsection{Remark.} An axiomatic treatment of $\N, \Z, \Q$ is beyond the scope of this course.
+
+\subsection{Remark.} For many purposes, the rationls are not "big enough".
+
+\subsection{Example.} \label{ex:sqrt2} There is no $x \in \Q$ such that $x^{2} = 2$. Indeed, assume there are $p, q \in \Z$ coprime such that $(p/q)^{2} = 2$. Then $p^{2} = 2q^{2}$, which means that $p^{2}$ is even, so $p$ is even as well. But if $p$ is even, then $p^{2} = 2q^{2}$ is divisible by $4$. But this is only possible if $q$ is even as well, a contradiction of the coprime-ness of $p, q$.
+
+\subsection{Example.} In fact, there is not even a "best approximation" in $\Q$ of the solution to $x^{2} = 2$. Consider the sets 
+$$A = \{a \in \Q \mid a^{2} < 2, a > 0\} \text{ and } B = \{b \in \Q \mid b^{2} > 2, b > 0\}.$$
+$A$ has no largest element. Indeed, suppose $p \in A$ with $p > 0$. Then setting 
+$$q = \frac{2p + 2}{p + 2}$$
+has that $q \in A$ and $q > p$. A similar argument shows that $B$ has no smallest element.
+
+\subsection{Definition.} An order on a set $S$ is a relation $<$ such that 
+
+(1) (Trichotomy) For $x, y \in S$, exactly one of the statements hold: 
+$$x < y \text{ or } x = y \text{ or } y < x.$$
+
+(2) (Transitivity) For $x, y, z \in S$, if $x < y$ and $y < z$, then $x < z$.
+
+If a set $S$ is equipped with an order $<$, then $(S, <)$ or simply $S$ is called an ordered set.
+
+\subsection{Example.} $\N, \Z, \Q$ are all ordered by $x < y$ iff $y - x$ is positive.
+
+\subsection{Definition.} Let $S$ be an ordered set. $E \subseteq S$ is bounded above if there exists some $M \in S$ such that $x \leq B$ for all $x \in E$. Similarly, $E \subseteq S$ is bounded below if there exists some $L \in S$ such that $x \geq B$ for all $x \in E$.
+
+\subsection{Example.} $\N$ has the well-ordering principle, in that every $E \subseteq \N$ nonempty has a least element.
+
+\subsection{Definition.} Let $S$ be an ordered set and let $E$ be bounded above. If there exists an $\alpha$ such that 
+
+(1) $\alpha$ is an upper bound of $E$,
+
+(2) If $\beta < \alpha$, then $\beta$ is not an upper bound of $E$,
+
+then $\alpha = \sup E$ is the supremum or least upper bound of $E$. Define symmetrically $\inf E$ to be the infimum or greatest lower bound of $E$.
+
+\subsection{Example.} 
+
+A supremum/infimum, when it exists, need not be a member of the subset.
+
+(1) The sets $A, B \subseteq \Q$ defined in Example \ref{ex:sqrt2} have no supremum or infimum, respectively.
+
+(2) $\N \subseteq \Z$ is bounded below but has no least upper bound.
+
+(3) $E = \{1/n \mid n \in \Z_{+}\}$ has that $\inf E = 0 \not\in E$.
+
+\subsection{Definition.} An ordered set has the least upper bound property if whenever $E \subseteq S$ is nonempty and bounded above, then $\sup E$ exists. Define symmetrically the greatest lower bound property.
+
+\subsection{Example.} $\N, \Z$ have the greatest upper bound property. $\Q$ does not.
+
+\subsection{Theorem.} Let $S$ be an ordered set with the least upper bound property and let $B \subseteq S$ is nonempty and bounded below. Let $L$ be the set of all lower bounds of $B$. Then $\sup L$ exists and is equal to $\inf B$, which exists.
+
+\subsection{Proof.} $L \neq \emptyset$ since $B$ is bounded below. Since $y \leq x$ for every $y \in L, x \in B$, then every $x \in B$ is an upper bound of $L$. Thus $L$ is bounded above since $B$ is nonempty, so $\sup L$ exists by the least upper bound property. Since every $x \in B$ is an upper bound of $L$, $\sup L \leq x$ for every $x \in B$, so $\sup L$ is a lower bound of $B$. For any lower bound $y \in L$ of $B$, $y \leq \sup L$, so $\sup L = \inf B$.
+
+\subsection{Remark.} A set $S$ has the least upper bound property iff it has the greatest lower bound property.
+
+\subsection{Definition.} A field $(F, + , \cdot)$ is a set $F$ equipped with two binary operations $+: F \times F \to F$ and $\cdot: F \times F \to F$ that satisfy the field axioms: For any $x, y, z \in F$,
+
+(1) (Closure) $x + y \in F$ and $x \cdot y \in F$.
+
+(2) (Commutativity) $x + y = y + x$ and $x \cdot y = y \cdot x$.
+
+(3) (Associativity) $(x + y) + z = x + (y + z)$ and $(x \cdot y) \cdot z = x \cdot (y \cdot z)$.
+
+(4) (Identity) There exists two symbols $0, 1 \in F$ with $0 \neq 1$ such that $0 + x = x$ and $1 \cdot x = x$.
+
+(5) (Inverse) There exists $-x \in F$ such that $x + (-x) = 0$ for any $x$, and there exists $1/x \in F$ such that $x \cdot 1/x = 1$ for any $x \neq 0$.
+
+(6) (Distibutivity) $x \cdot (y + z) = xy + xz$.
+
+\subsection{Example.}
+
+(1) $\Q$ with $+$ and $\cdot$ defined normally as a field.
+
+(2) $\{0, 1\}$ is the trivial field.
+
+(3) $\Z$ is not a field because it does not have multiplicative inverses.
+
+\subsection{Remark.} Fields are interesting because any statement proven about a general field $F$ must hold in any field such as $\Q, \R, \C$ (to be defined later).
+
+\subsection{Definition.} An ordered field is a field $F$ equipped with an order $<$ such that for $x, y, z \in F$, 
+
+(1) $x + y < x + z$ if $y < z$.
+
+(2) $xy > 0$ if $x, y > 0$.
+
+$x > 0$ is said to be positive and $x < 0$ is said to be negative.
+
+\subsection{Theorem.} There exists an ordered field $\R$ with the least upper bound property. Moreover, $\Q \subseteq \R$. The elements of $\R$ are called the real numbers.
+
+\subsection{Proof.} The proof is delayed until the end of the course (though the tools already exist to prove it).
+
+\subsection{Theorem.} $\R$ has the follow properties:
+
+(1) (Archimedean property) Lorem ipsum.
+
+(2) (Density of $\Q$) Lorem ipsum.
+
+(3) (Existence of roots) Lorem ipsum.
+
+\subsection{Proof.}
+
+Lorem ipsum.
+
+\newpage \newsection{Sequences and series of functions}
+
+\subsection{Section.} Sequences and series of functions.
+
+\subsection{Definition.} Given a sequence of $(f_{n})$ of $\C$-valued functions on a metric space $(X, d)$ such that $\lim f_{n}(x)$ exists for every $x \in X$, then define the limit $\lim f_{n}$ to be the function $f: X \to \C$ such that 
+$$f(x) = \lim_{n \to \infty} f_{n}(x)$$
+for every $x \in X$. $(f_{n})$ is said to converge pointwise to $f$
+
+\subsection{Remark.} Do limits/sums of functions preserve the properties of the sequence? If $(f_{n})$ is a sequence of continuous/differentiable functions, then is the limit/sum continuous/differentiable? Moreover, is $(f_{n}')$ related to $f'$?
+
+\subsection{Example.}
+
+\end{document}
