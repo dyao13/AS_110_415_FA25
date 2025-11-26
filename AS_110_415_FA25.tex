@@ -131,6 +131,210 @@ for every $x \in X$. $(f_{n})$ is said to converge pointwise to $f$
 
 \subsection{Remark.} Do limits/sums of functions preserve the properties of the sequence? If $(f_{n})$ is a sequence of continuous/differentiable functions, then is the limit/sum continuous/differentiable? Moreover, is $(f_{n}')$ related to $f'$?
 
+Recall that $f$ is continuous at $x$ iff $f(t) \to f(x)$ as $t \to x$. Thus, asking whether the limit of continuous functions is continuous is the same as asking if 
+$$\lim_{t \to x} \lim_{n \to \infty} f_{n}(t) = \lim_{n \to \infty} \lim_{t \to x} f_{n}(t),$$
+namely if it is possible to "swap limits".
+
+\subsection{Example.} Pointwise convergence is not sufficient to swap limits. Let $S_{m,n} = m/(m + n)$ for each $m, n \in Z_{+}$. Then, 
+$$\lim_{n \to \infty} \lim_{m \to \infty} S_{m,n} = \lim_{n \to \infty} 1 = 1$$
+while 
+$$\lim_{m \to \infty} \lim_{n \to \infty} S_{m, n} = \lim_{m \to \infty} 0 = 0.$$
+
+\subsection{Example.} Pointwise convergence is not enough to guarantee continuity of limits! For $x \in \R$, let 
+$$f(x) = \sum_{n = 0}^{\infty} f_{n}(x) = \sum_{n = 0}^{\infty} \frac{x^{2}}{(1 + x^{2})^{n}}.$$
+Since $f_{n}(0) = 0$ for every $n \in \N$, $f(0) = 0$. If $x \neq 0$, then 
+$$f(x) = x^{2} + \frac{x^{2}}{1 + x^{2}} + \frac{x^{2}}{(1 + x^{2})^{2}} + \ldots = 1 + x^{2},$$
+so 
+$$f(x) = \begin{cases}
+    0 & \text{if } x = 0 \\
+    1 + x^{2} & \text{otherwise.}
+\end{cases},$$
+so $f$ is not continuous!
+
+\subsection{Example.} For $x \in \R$ and $n \in \N$, let 
+$$g_{n}(x) = \frac{\sin (nx)}{\sqrt{n}}$$
+so that 
+$$g(x) = \lim_{n \to \infty} g_{n}(x) = 0$$
+for every $x \in R$. But 
+$$g_{n}' = \sqrt{n} \cos (nx)$$
+is such that 
+$$\lim_{n \to \infty} g_{n}'(0) = \sqrt{n},$$
+so $g_{n}'$ does not converge pointwise to $g'$.
+
+\subsection{Definition.} Let $(f_{n})$ be a sequence of $\C$-valued functions on a metric space $(X, d)$. $(f_{n})$ converges uniformly on $E \subseteq X$ if for every $\epsilon > 0$, there is an $N \in \N$ such that $n \geq N$ implies that 
+$$|f_{n}(x) - f(x)| < \epsilon$$
+for every $x \in E$. 
+
+\subsection{Remark.} Uniform convergence is stronger than pointwise convergence: $f_{n} \to f$ uniformly implies that $f_{n} \to f$ pointwise.
+
+\subsection{Theorem.} Let $(f_{n})$ be a sequence of $\C$-valued functions on a metric space $(X, d)$. $(f_{n})$ converges uniformly on $E \subseteq X$ iff $(f_{n})$ is uniformly Cauchy on $E$, namely iff for every $\epsilon > 0$ there is an $N \in \N$ such that $m, n \geq N$ implies that 
+$$|f_{m}(x) - f_{n}(x)| < \epsilon$$
+for every $x \in E$.
+
+\subsection{Proof.} 
+
+($\Rightarrow$) If $f_{n} \to f$ uniformly on $E$ and $\epsilon > 0$, then there is an $N \in \N$ such that $n \geq n$ implies that $|f_{n}(x) - f(x)| < \epsilon/2$ for every $x \in E$. Hence, for $m, n \geq N$, 
+$$|f_{m}(x) - f_{n}(x)| \leq |f_{m}(x) - f(x)| + |f(x) - f_{n}(x)| < \epsilon/2 + \epsilon/2$$
+for every $x \in E$, so $(f_{n})$ is uniformly Cauchy in $E$.
+
+($\Leftarrow$) If $(f_{n})$ is uniformly Cauchy on $E$ and $\epsilon > 0$, then there is an $N \in |N$ such that $m, n \geq n$ implies that $|f_{m} - f_{n}| < \epsilon/2$ for every $x \in E$. The sequence $(f_{m}(x))$ is Cauchy in $\C$ for every $x \in E$, so 
+$$f(x) = \lim_{m \to \infty} f_{m}(x)$$
+exists for every $x \in E$. This means that if $m, n \geq N$, then for each $x \in E$, 
+$$|f_{m}(x) - f_{n}(x)| < \epsilon/2 \quad \Longrightarrow \quad -\epsilon/2 < f_{m}(x) - f_{n}(x) < \epsilon/2,$$
+so that 
+$$-\epsilon/2 \leq \lim_{m \to \infty} (f_{m}(x) - f_{n}(x)) = f(x) - f_{n}(x) \leq \epsilon/2,$$
+which means that 
+$$|f(x) - f_{n}(x)| < \epsilon$$
+for every $x \in E$, so $f_{n} \to f$ uniformly on $E$.
+
+\subsection{Theorem.} Suppose that $f_{n} \to f$ pointwise on $E \subseteq X$. Then $f_{n} \to f$ uniformly iff $f_{n} \to f$ in the supremum norm, namely, if 
+$$\sup_{x \in E} |f_{n}(x) - f| \to 0$$
+as $n \to \infty$.
+
+\subsection{Proof.}
+
+($\Rightarrow$) If $f_{n} \to f$ uniformly then $\sup |f_{n}(x) - f(x)| \to 0$ by definition.
+
+($\Leftarrow$) If $\sup |f_{n}(x) - f(x)| \to 0$, then for every $\epsilon > 0$, there is an $N \in \N$ such that $n \geq N$ implies that $\sup |f_{n}(x) - f(x)| < \epsilon$. Hence, for $n \geq N$, 
+$$|f_{n}(x) - f(x)| \leq \sup_{x \in E} |f_{n}(x) - f(x)| < \epsilon$$
+for every $x \in E$, so $f_{n} \to f$ uniformly.
+
+\subsection{Example.} The sequence of functions $f_{n}(x) = 1/(nx + 1)$ on $(0, 1) \supseteq \R$ for $n \in \N$ is such that $f_{n} \to 0$ pointwise but for every $n$, 
+$$|0 - f_{n}(x)| = \left| \frac{1}{nx+1} \right|,$$
+so choosing $x = 1/n \in (0, 1)$ has that 
+$$\left| 0 - f_{n}\left(\frac{1}{n}\right) \right| = \frac{1}{2}$$
+for every $n \in \N$. So $f_{n}$ does not converge to $0$ uniformly.
+
+\subsection{Theorem.} (Weierstrauss M-test) If $(f_{n})$ is a sequence of $\C$-valued functions on $E \subseteq X$ for a metric space $(X, d)$ with $|f_{n}(x)| \leq M_{n}$ for every $x \in E, n \in \N$, then $\sum f_{n}$ converges uniformly if $\sum M_{n}$ converges.
+
+\subsection{Proof.} If $\sum M_{n}$ converges in $\R$, then its partial sums are Cauchy in $\R$. Hence, for every $\epsilon > 0$, there is an $N \in \N$ such that $m, n \geq N$ implies by the triangle equality that 
+$$\left| \sum_{i=m}^{n} f_{i}(x) \right| \leq \sum_{i=m}^{n} |f_{i}(x)| \leq \sum_{i=m}^{n} M_{i} < \epsilon$$
+so that the partial sums of $\sum f_{n}$ are uniformly Cauchy and hence uniformly convergent.
+
+\subsection{Example.} The converse statement to the Weierstrauss M-test fails in general. Choose the sequence of functions on $\R$ defined by 
+$$f_{n}(x) = \frac{(-1)^{n+1}}{n}$$
+for $n \in Z_{+}$. Then 
+$$\sum_{n=1}^{\infty} f_{n}(x) = \log 2$$
+for every $x \in \R$. But $|f_{n}(x)| = 1/n$ for every $x \in X$, so setting $M_{n} = 1/n$ has that $\sum M_{n}$ diverges. Hence $\sum f_{n}$ converges uniformly but $\sum M_{n}$ diverges, so the converse fails.
+
+\subsection{Theorem.} Suppose that $f_{n} \to f$ uniformly on $E \subseteq X$ for a metric space $(X, d)$ and that $x \in X$ is a limit point of $E$ and that $f_{n}(t) \to A_{n}$ as $t \to x$ for every $n \in \N$. Then $(A_{n})$ converges and 
+$$\lim_{t \to x} f(t) = \lim_{t \to x} \lim_{n \to \infty} f_{n}(t) = \lim_{n \to \infty} \lim_{t \to x} f_{n}(t) = \lim_{n \to \infty} A_{n}.$$
+Moreover, if $(f_{n})$ is a sequence of continuous functions, then $f$ is continuous also.
+
+\subsection{Proof.} Since $f_{n} \to f$ uniformly, the sequence is uniformly Cauchy, so for every $\epsilon > 0$, there is an $N \in \N$ such that $m, n \geq N$ implies that $|f_{m}(t) - f_{n}(t)| < \epsilon/2$ for every $t \in E$. Sending $t \to x$, $m, n \geq N$ implies that 
+$$|A_{m} - A_{n}| \leq \epsilon/2 < \epsilon,$$
+so $(A_{n})$ is uniformly Cauchy in $\C$ and thus converges to $A \in \C$. Note that for every $n \in \N$ and $t \in E$, 
+$$|f(t) - A| \leq |f(t) - f_{n}(t) + |f_{n}(t) - A_{n}| + |A_{n} - A|$$
+by the triangle inequality. For $\epsilon > 0$, choose $N \ni \N$ such that for $n \geq N$, both 
+$$|f(t) - f_{n}(t)| < \epsilon/3$$
+for every $t \in E$ (since $f_{n} \to f$ uniformly) and 
+$$|A_{n} - A| < \epsilon/3$$
+since $A_{n} \to A$. Finally, choose some neighborhood $U$ of $x$ in $X$ such that 
+$$|f_{n}(t) - A_{n}| < \epsilon/3$$
+for all $t \in (U \cap E) \setminus \{x\}$. Combining these three inequalities, 
+$$|f(t) - A| < \epsilon,$$
+for every $t \in (U \cap E) \setminus \{x\}$, to get the desired conclusions.
+
+\subsection{Theorem.} (Dini's) Suppose that $(f_{n})$ be a sequence of $\R$-valued functions on a compact subset $K \subseteq X$ for a metric space $(X ,d)$. If $f_{n} \to f$ pointwise, $f_{n}$ continuous for every $n \in \N$, $f$ is continuos, and $f_{n} \geq f_{n+1}$ or $\leq$ for every $n \in \N$, then $f_{n} \to f$ uniformly on $K$.
+
+\subsection{Proof.} Consider the sequence $(g_{n}) = (f_{n} - f)$. Then $g_{n}$ is continuous for every $n \in N$ and $g_{n} \to 0$ pointwise and $g_{n} \geq g_{n+1}$ for every $n \in \N$. For $\epsilon > 0$, let 
+$$K_{n} = g_{n}^{-1}([\epsilon, \infty))$$
+(which is closed since $g_{n}$ is continuous) for every $n \in \N$. Since $K$ is compact, $K_{n} \subseteq K$ is compact also. If $x \in K_{n+1}$, then $\epsilon \leq g_{n+1}(x) \leq g_{n}(x)$, so $x \in K_{n}$ also. Thus the $K_{n+1} \subseteq K_{n}$ are nested for $n \in N$. Now for each $x \in K$, $g_{n}(x) \to 0$ so that $x \not\in K_{n}$ eventually. Thus $\cap K_{n} = \emptyset$, which means that $K_{n} = \emptyset$ eventually since the $K_{n}$ are compact and nested. This means that there is some $N \in \N$ such that $K_{n} = \emptyset$ for all $n \geq N$, so $g_{n} < \epsilon$ for all $n \geq N$ for all $x \in K$. Since $g_{n} \geq 0$ for every $n \geq 1$, this implies that $g_{n} \to 0$ uniformly which implies that $f_{n} \to f$ uniformly.
+
+\subsection{Remark.}
+
+(1) Compactness is necessary for Dini's Theorem as exhibited by the sequence $(f_{n}(x)) = (1/(nx + 1))$ on $(0, 1)$ with $f_{n} \geq f_{n+1}$ for every $n \in \N$.
+
+(2) Monotonacity is necessary for Dini's Theorem as exhibited by the example of the sequence $(g_{n})$ on $[0, 1]$ defined by 
+$$g_{n}(x) = \begin{cases}
+    nx & {if } 0 \leq x \leq 1/n \\
+    2 - nx & \text{if } 1/n \leq x \leq 2/n \\
+    0 \text{ otherwise.}
+\end{cases}$$
+Here, $g_{n} \to 0$ pointwise, but $g_{n}$ does not converge to $0$ uniformly.
+
+\subsection{Theorem.} The set of bounded continuous functions $\mathcal{C}(X)$ on a metric space $(X, d)$ under the supremum norm is a complete metric space.
+
+\subsection{Proof.} $(f_{n}) \subseteq \mathcal{C}(X)$ is Cauchy iff it is uniformly Cauchy iff there is some $f: X \to \C$ such that $f_{n} \to f$ uniformly on $X$. Since $(f_{n})$ is a sequence of continuous functions, then $f$ is continuous. Moreover, $f$ is bounded because $f_{n} \to f$ uniformly implies that $|f_{n}(x) - f(x)| < 1$ for every $x \in X$ eventually. So $f \in \mathcal{C}(X)$ and since $f_{n} \to f$ uniformly, $d(f_{n}, f) \to 0$ as $n \to \infty$.
+
+\subsection{Theorem.} Let $(f_{n})$ be a sequence of $\C$-valued functions differentiable on $[a, b]$ such that $f_{n}(x_{0})$ converges for some $x_{0} \in [a, b]$. If $(f_{n}')$ converges uniformly on $[a, b]$, then $(f_{n})$ converges uniformly on $[a, b]$ to a function $f$ and 
+$$f'(x) = \lim_{n \to \infty} f_{n}'(x)$$
+for every $x \in [a, b]$.
+
+\subsection{Proof.} Let $\epsilon > 0$. Since $(f_{n}(x_{0}))$ converges, it is Cauchy, so there is some $N \in \N$ such that 
+$m, n \geq N$ implies that 
+$$|f_{m}(x_{0}) - f_{n}(x_{0})| < \epsilon/2$$
+and since $(f'_{n})$ is uniformly convergent, it is uniformly Cauchy, so taking $N$ potentially larger, $m, n \geq N$ implies that 
+$$|f_{m}'(t) - f_{n}'(t)| < \frac{1}{2}\frac{\epsilon}{b-a}$$
+for every $t \in [a, b]$. By the Mean Value Theorem, for any $x, t \in [a, b]$ there is some $\xi \in (x, t)$ (or $\xi \in (t, x))$ such that if $m, n \geq N$, then 
+\[|(f_{m}(x) - f_{n}(x)) - (f_{m}(t) - f_{n}(t))| = |x-t||f_{m}'(\xi) - f_{n}'(\xi)| \leq \frac{1}{2}\frac{|x-t|}{b-a} \leq \frac{\epsilon}{2} \tag{$\ast$}\]
+Hence for any $x \in [a, b]$, for $m, n \geq N$, 
+$$|f_{m}(x) - f_{n}(x) \leq |(f_{m}(x) - f_{n}(x)) - (f_{m}{x_{0}} - f_{n}(x_{0}))| + |f_{m}(x_{0}) - f_{n}(x_{0})| < \epsilon/2 + \epsilon/2$$
+so that $(f_{n})$ is uniformly Cauchy and hence uniformly convergent on $[a, b]$. Let $f$ be the limit of $(f_{n})$ and fix $x \in [a, b]$. Define for $t \in [a, b] \setminus \{x\}$ the functions 
+$$\phi_{n}(t) = \frac{f_{n}(t) - f_{n}(x)}{t - x} \text{ and } \phi(t) = \frac{f(t) - f(x)}{t - x}.$$
+Note then that 
+$$\lim_{t \to x} \phi_{n}(t) = f_{n}'(x)$$
+for every $n \in \N$. By ($\ast$), 
+$$|\phi_{m}(t) - \phi_{m}(x)| \leq \frac{1}{2}\frac{\epsilon}{b-a}$$
+for $m, n \geq \N$, so $(\phi_{n})$ converges uniformly on $[a, b] \setminus \{x\}$ as it is uniformly Cauchy. As $f_{n} \to f$ uniformly, $\phi_{n} \to \phi$ on $[a, b] \setminus \{x\}$, and as $x$ is a limit point of $[a, b] \setminus \{x\}$, 
+$$\lim_{t \to x} \phi(t) = \lim_{t \to x} \lim_{n \to \infty} \phi_{n}(t) = \lim_{n \to \infty} \lim_{t \to x} \phi_{n}(t) = \lim_{n \to \infty} f_{n}'(x)$$
+so that 
+$$f'(x) = \lim_{t \to x} \phi(t) = \lim_{n \to \infty} f_{n}'(x)$$
+for every $x \in [a, b]$.
+
+\subsection{Example.} If $(f_{n}(x_{0}))$ converging for some $x_{0} \in [a, b]$ is not given, then $(f_{n})$ may not even converge. Consider the $(f_{n}) = n$ on $[0, 1]$ such that $f_{n}' = 0$ for every $n \in \N$ but $f_{n}$ diverges.
+
+\subsection{Theorem.} There is a continuous function $f: \R \to \R$ that is nowhere differentiable.
+
+\subsection{Proof.} Lorem ipsum.
+
+\subsection{Definition.} A sequence $(f_{n})$ of $\C$-valued functions on a metric space $(X, d)$ is 
+
+(1) pointwise bounded on $X$ if there is some $\phi: X \to \R$ such that $|f_{n}| \leq \phi$ for all $n \in \N$.
+
+(2) uniformly bounded on $X$ if there is some $M \geq 0$ such that $|f_{n}| \leq M$ for all $n \in \N$.
+
+\subsection{Remark.} Uniformly convergent implies uniformly bounded.
+
+\subsection{Remark.} If $X$ is countable, then one can use the Cantor diagonalization argument to find a subsequence converging pointwise on $X$ if the sequence if pointwise bounded.
+
+\subsection{Remark.} If $(f_{n})$ is uniformly bounded, it does not necessarily contain a pointwise convergent subsequence. This is shown in Rudin using the dominated convergence theorem on the sequence $(\sin (nx))$ on $[0, 2\pi]$.
+
+\subsection{Example.} Convergent uniformly bounded sequences do not necessarily contain uniformly convergent subsequences. Let $(f_{n})$ be defined by 
+$$f_{n}(x) = \frac{x^{2}}{x^{2} + (1 - nx)^{2}}$$
+on $[0, 1]$ for $n \in \N$. Then $|f_{n}(x)| \leq 1$ so $(f_{n})$ is uniformly bounded. Moreover, $f_{n}(x) \to 0$ for every $x \in [0, 1]$. But $f_{n}(1/n) = 1$ for every $n \in \N$, so no subsequence converges uniformly.
+
+\subsection{Theorem.} If $(f_{n})$ is a pointwise bounded sequence of $\C$-valued functions on a countable metric spcae $(X, d)$, then there is a subsequence $(f_{n_{k}})$ that converges for every $x \in X$.
+
+\subsection{Proof.} Enumerate $X = (x_{i})$. As $(f_{n}(x_{1}))$ is bounded, there is a subsequence $(f_{k}^{1})$ of $(f_{n})$ such that $f_{k}^{1}(x_{1})$ converges as $k \to \infty$. As $f_{k}^{1}(x_{2})$ is bounded, there is a subsequence $(f_{k}^{2})$ of $(f_{k}^{1})$ such that $(f_{k}^{2}(x_{2}))$ converges as $k \to \infty$. Continuing inductively, consider the subsequence $(f_{k}^{l+1})$ of $f_{k}^{l}$ such that $(f_{k}^{l+1})(x_{l+1})$ converges as $k \to \infty$. Choose the diagonal subsequence $(f_{k}^{k})$ of $(f_{n})$ such that $(f_{k}^{k})(x_{i})$ converges for every $i \in \N$ since $(f_{k}^{k})$ is a subsequence of $(f_{k}^{i})$ for $k \geq i$ by construction. Reindexing $(f_{k}^{k}) = (f_{n_{k}})$ for every $k \in \N$ gives the desired subsequence.
+
+\begin{center} \begin{tabular}{c|cccc}
+    $x_{1}$ & $f_{1}^{1}$ & $f_{2}^{1}$ & $f_{3}^{1}$ & \ldots \\
+    $x_{2}$ & $f_{1}^{2}$ & $f_{2}^{2}$ & $f_{3}^{2}$ & \ldots \\
+    $x_{3}$ & $f_{1}^{3}$ & $f_{2}^{3}$ & $f_{3}^{3}$ & \ldots \\
+    \vdots & \vdots & \vdots & \vdots
+\end{tabular} \end{center}
+The $i$th row converges for $x_{i}$. Every row is a subsequence of the row above. The diagonal subsequence is such that $(f_{k}^{k}(x_{i}))$ is convergent for every $i \in \N$.
+
+\subsection{Definition.} A collection $\mathcal{F}$ of $\C$-valued functions on a set $E \subseteq X$ for a metric space $(X, d)$ is (uniformly) equicontinuous on $E$ if for every $\epsilon > 0$, there is some $\delta > 0$ such that for any $x, y \in E$, $d(x, y) < \delta$ implies that 
+$$|f(x) - f(y)| < \epsilon$$
+for every $f \in \mathcal{F}$.
+
+\subsection{Remark.} If $\mathcal{F}$ is equicontinuous, then every $f \in \mathcal{F}$ is uniformly continuous.
+
 \subsection{Example.}
+
+(1) If $\mathcal{F} = (f_{n})$, a sequence of differentiable functions on $[0, 1]$ with $(f_{n}')$ uniformly bounded, then $\mathcal{F}$ is equicontinuous. Indeed, if $|f_{n}'(x)| \leq M$ for all $n \in \N$ and $x \in [0, 1]$, then for $\epsilon > 0$, choose $\delta = \epsilon / (M+1)$ so that by the Mean Value Theorem, 
+$$|x - y| < \frac{\epsilon}{M+1}$$
+implies that 
+$$|f_{n}(x) - f_{n}(y)| \leq |x - y| \sup_{t \in [0, 1]} |f'(t)| < \frac{\epsilon M}{M+1} < \epsilon.$$
+
+(2) The sequence 
+$$\mathcal{G} = \left(\frac{x^{2}}{x^{2} + (1-nx)^{2}}\right)$$
+on $[0, 1]$ is uniformly bounded, converges pointwise to $0$, but has no uniformly convergent subsequence. $\mathcal{G}$ is not equicontinuous as $g_{n}(1/n) = 1$ but $g_{n} = 0$ for every $n \in \N$, so there is no $\delta > 0$ for $\epsilon \in (0, 1)$.
+
+(3) $\mathcal{H} = (\arctan (nx))$ is not equicontinuous since $\arctan (nx) \to \pm \pi/2$ if $x >/< 0$.
+
+\subsection{Theorem.} Let $(K, d)$ be compact and $(f_{n}) \subseteq \mathcal{C}(K)$. Then if $(f_{n})$ converges uniformly on $K$, then $(f_{n})$ is equicontinuous on $K$.
 
 \end{document}
