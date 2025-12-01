@@ -117,9 +117,573 @@ $x > 0$ is said to be positive and $x < 0$ is said to be negative.
 
 (3) (Existence of roots) Lorem ipsum.
 
+\subsection{Proof.} Lorem ipsum.
+
+\subsection{Lemma.} (Reverse triangle inequality) If $x, y \in \C$, then 
+$$||x| - |y|| \leq |x - y|.$$
+Indeed, this inequality holds in any metric space $(X, d)$.
+
 \subsection{Proof.}
 
-Lorem ipsum.
+$$||x|-|y|| = ||x-y+y|-|y|| \leq ||x-y|| + |y| - |y| = |x-y|.$$
+
+\newpage \newsection{Sequences and Series}
+
+\subsection{Section.} Sequences and series.
+
+\subsection{Definition.} Let $(X, d)$ be a metric space. A sequence $(x_{n}) \subseteq X$ converges in $X$ if there is a point $x \in X$ such that for every $\epsilon > 0$, there is an $N \in \N$ such that $n \geq N$ implies that $x_{n} \in B(x, \epsilon)$. $x$ is said to be the limit of $(x_{n})$. If $(x_{n})$ does not converge, then it diverges.
+
+\subsection{Remark.} Lorem ipsum.
+
+\subsection{Example.} Lorm ipsum.
+
+\subsection{Theorem.} Let $(X, d)$ be a metric space and $x_{n} \subseteq X$.
+
+(1) Limits are unique.
+
+(2) Convergent sequences are bounded.
+
+(3) $x_{n} \to x$ iff every neighborhood of $x$ contains all but finitely many of the $(x_{n})$.
+
+(4) If $E \subseteq X$ and $x \in E'$, then there is a sequence $(x_{n}) \subseteq E$ such that $x_{n} \to x$.
+
+\subsection{Proof.} Lorem ipsum.
+
+\subsection{Theorem.} Suppose $(x_{n}), (y_{n}) \subseteq \C$ with $x_{n} \to x$ and $y_{n} \to y$. Then 
+
+(1) $(x_{n} + y_{n}) \to x + y$.
+
+(2) $(x_{n}y_{n}) \to xy$.
+
+(3) $(1/x_{n}) \to 1/x$ if $x_{n}, x \neq 0$ for every $n \in \N$.
+
+\subsection{Theorem.} Suppose $(x_{n}), (y_{n}) \subseteq \R^{k}$ and $(c_{n}) \subseteq \R$ with $x_{n} \to x, y_{n} \to y$ in $\R^{k}$ and $c_{n} \to c$ in $\R$.
+
+(1) If $x_{n} = (a_{n}^{1}, \ldots, a_{n}^{k})$ for $n \in \N$, then 
+$$x_{n} \to (a^{1}, \ldots, a^{n}) \quad \Longleftrightarrow \quad a_{n}^{i} \to a^{i}$$
+for every $i = 1, \ldots k$.
+
+(2) $(x_{n} + y_{n}) \to x + y$ and $(x_{n}y_{n}) \to xy$ and $(c_{n}x_{n}) \to cx$.
+
+\subsection{Proof.} Lorem ipsum.
+
+\subsection{Definition.} Let $(X, d)$ be a metric space and $(x_{n}) \subseteq X$. For a sequence $(n_{k}) \subseteq \N$ such that $1 \leq n_{k} < n_{k+1}$ for every $k \in \Z_{+}$, the sequence $(x_{n_{k}}) \subseteq (x_{n})$ is a subsequence of $(x_{n})$. If $(x_{n_{k}})$ converges in $X$, then its limit is called a subsequential limit.
+
+\subsection{Theorem.} Let $(X, d)$ be a metric space and $(x_{n}) \subseteq X$. Then $(x_{n} \to x)$ iff every subsequence of $(x_{n})$ converges to $x$.
+
+\subsection{Proof.} Lorem ipsum.
+
+\subsection{Theorem.} (Bolzano-Weierstrauss) Let $(X, d)$ be a compact metric space and $(x_{n}) \subseteq X$. Then $(x_{n}) \subseteq X$ has a convergent subsequence. In particular, every bounded subsequence in $\R^{k}$ has a convergent subsequence.
+
+\subsection{Proof.} If the range of $(x_{n})$ is finite, then there is an $a \in (x_{n})$ that appears infinitely many times. Taking the constant subsequence $(a) \subseteq (x_{n})$ gives a convergent subsequence.
+
+If the range of $(x_{n})$ is infinite, then it has a limit point $x \in X$ since $X$ is compact. Since $x$ is a limit point, for $k \in \Z_{+}$, choose $x_{n_{k}} \in (x_{n})$ with $d(x_{n_{k}}, x) < 1/k$. Choosing these $n_{k}$ such that $1 \leq n_{k} < n_{k+1}$ for $k \in Z_{+}$ gives a subsequence $(x_{n_{k}})$ converging to $x$.
+
+If $(x_{n}) \subseteq R^{k}$ is bounded, then it is contained in a compact $n$-cell, so the arguments above hold.
+
+\subsection{Theorem.} Let $(X, d)$ be a metric space and $(x_{n}) \subseteq X$. The set of subsequential limits of $(x_{n})$ is closed.
+
+\subsection{Proof.} Let $E \subseteq X$ be the set of subsequential limits of $(x_{n})$. If $E$ is empty or finite, then it it has no limit points, so it is closed. Suppose, then, that $E$ is infinite. Let $x \in $ be a limit point of $E$. Fix $n_{1} \in \N$ such that $x_{n_{1}} \neq x$ and note that for every $k \in \N$, there is some $x^{k} \in E$ such that $d(x^{k}, x) < 2^{-k} d(x_{n_{1}}, x)$ since $x$ is a limit point of $E$. As $x^{k} \in E$ for every $k \in \N$, inductively choose $n_{k} > n_{k-1} \geq 1$ such that $d(x_{n_{k}}, x^{k}) < 2^{-k} d(x_{n_{1}, x})$. (Since $x^{k} \in E$, there is a subsequence of $(x_{n})$ converging to it.) Thus, 
+$$d(x_{n_{k}}) \leq d(x_{n_{k}}, x^{k}) + d(x^{k}, x) < 2^{-k} d(x_{n}, x) + 2^{-k} d(x_{n_{1}, x}) = 2^{1-k} d(x_{n_{1}}, x),$$
+so that $x_{n_{k}} \to x$. Hence $x \in E$.
+
+\subsection{Definition.} Let $(X, d)$ be a metric space and $(x_{n} \subseteq X)$. $(x_{n})$ is Cauchy if for every $\epsilon > 0$ there is some $N \in \N$ such that if $m, n \geq \N$, then $d(x_{m}, d_{n}) < \epsilon$.
+
+\subsection{Theorem.} A convergent sequence is a Cauchy sequence.
+
+\subsection{Proof.} For every $\epsilon > 0$, there is a $N \in \N$ such that $d(x_{n}, x) < \epsilon/2$ for every $n \geq N$. Thus, if $m, n \geq N$, then 
+$$d(x_{m}, x_{n}) \leq d(x_{m}, x) + d(x, x_{n}) < \epsilon/2 + \epsilon/2,$$
+and hence $(x_{n})$ is a Cauchy sequence.
+
+\subsection{Theorem.} Let $(X, d)$ be a compact metric space. Every Cauchy sequence in $XS$ converges in $X$. Moreover, every Cauchy sequence is bounded and so every Cauchy sequence in $\R^{k}$ converges.
+
+\subsection{Proof.} If $(x_{n}) \subseteq X$ is Cauchy, then for every $\epsilon > 0$, there is a $N \in \N$ such that $d(x_{m}, x_{n}) < \epsilon/2$ if $m, n \geq N$. Also, since $X$ is compact, there is a subsequence $(x_{n_{k}})$ of $(x_{n})$ such that $x_{n_{k}} \to x$ for some $x \in X$. Hence, there is a $\tilde{N} \in \N$ such that $d(x_{n_{k}}, x) < \epsilon/2$ for $k \geq \tilde{N}$. Thus for any $n \geq N$, 
+$$d(x_{n}, x) \leq d(x_{n}, x_{n_{\tilde{N}}}) + d(x_{n_{\tilde{N}}}) < \epsilon/2 + \epsilon/2,$$
+and hence $x_{n} \to x$.
+
+Moreover, even if $X$ is not compact, but $(x_{n}) \subseteq X$ is Cauchy, then since $d(x_{m}, x_{n}) < 1$ for every $m, n \geq N$ for some $N \in \N$. Now setting 
+$$M = \max \{1, d(x, x_{N}), \ldots, d(x_{N-1}, x_{N})\} > 0,$$
+so 
+$$d(x_{n}, x_{N}) < M$$
+for every $n \in \N$. Hence, $(x_{n})$ is bounded. Finally, if $(x_{n}) \subseteq \R^{k}$ is Cauchy, then it is bounded, so it is contained in a compact $n$-cell. Hence, $(x_{n})$ converges.
+
+\subsection{Definition.} A metric space is complete if every Cauchy sequence is convergent.
+
+\subsection{Remark.} Every compact metric space is complete. The converce is not true.
+
+\subsection{Example.} $\Q$ is not complete.
+
+\subsection{Definition.} A sequence is monotone if it is increasing or decreasing. That is, if, $x_{n} \leq x_{n+1}$ or if $x_{n+1} \leq x_{n}$ for every $n \in \N$. THe terms strictly increasing/decreasing are used if the inequality is strict.
+
+\subsection{Theorem.} A monotone sequence converges iff it is bounded.
+
+\subsection{Proof.}
+
+($\Rightarrow$) If $(x_{n})$ is not bounded, then it is not convergent.
+
+($\Leftarrow$) If $(x_{n})$ is monotone increasing and bounded, then the set $E = \{x_{n} \mid n \in \N\}$ is bounded and thus $\sup E$ exists such that $x_{n} \leq \sup E$ for all $n \in \N$. For $\epsilon > 0$, there is some $N \in \N$ such that $x_{n} \in B(\sup E, \epsilon)$ for all $n \in \N$. (Otherwise, $\sup E$ would not be the supremum.) Hence, $x_{n} \to \sup E$. If instead $(x_{n})$ is monotone decreasing and bounded, simply consider $(-x_{n})$.
+
+\subsection{Theorem.} (Squeeze) If $(x_{n}), (y_{n}), (z_{n}) \subseteq \R$ are sequences with $x_{n} \to x, y_{n} \to y, z_{n} \to z$ for $n \in \N$, then $x \leq y \leq z$.
+
+\subsection{Proof.} It suffices to show that $x \leq y$. Suppose that $y \leq x$ and fix $N, \tilde{N}$ such that 
+$$|x_{n} - x| < \frac{x-y}{2} \text{ and } |y_{n} - y| < \frac{x-y}{2}$$
+for $n \geq \max \{N, \tilde{N}\}$. THus for $n \geq \max \{N, \tilde{N}\}$, 
+$$y_{n} < \frac{x+y}{2} < x_{n},$$
+a contradiction.
+
+\subsection{Theorem.} A sequence diverges to $+\infty$ if for each $M \in \R$, there is an $N \in \R$ such that $x_{n} \geq M$ for every $n \in \N$. Symmetrically define when a sequence diverges to $-\infty$.
+
+\subsection{Definition.} Let $(x_{n}) \subseteq \R$ be a sequence and $E$ be the set of subsequential limits (including $\pm \infty$) of $(x_{n})$. Denote the upper and lower limits (or limit superior and limit inferior) of $(x_{n})$ by 
+$$\lim_{n \to \infty} \sup (x_{n}) = \sup E \text{ and } \lim_{n \to \infty} \inf (x_{n}) = \inf E.$$
+Equivalently, define 
+$$\lim_{n \to \infty} \sup (x_{n}) = \lim_{n \to \infty} (\sup_{m \geq n} \{x_{m}\}) \text{ and } \lim_{n \to \infty} \inf (x_{n}) = \lim_{n \to \infty} (\inf_{m \geq n} \{x_{m}\}).$$
+
+\subsection{Theorem.} Let $(x_{n}) \in \R$ be a sequence and $E$ the set of subsequential limits (including $\pm \infty$) of $(x_{n})$.
+
+(1) $\lim \sup (x_{n}), \lim \inf (x_{n}) \in E$.
+
+(2) If $\lim \sup (x_{n}) < x$, then there is some $N \in \N$ such that $x_{n} < x$ for all $n \geq \N$. A symmetric statement holds for if $\lim inf (x_{n}) > x$.
+
+Moreover, $\lim \sup (x_{n}), \lim \inf (x_{n})$ are the only two numbers satisfying (1) and (2).
+
+\subsection{Proof.} Lorem ipsum.
+
+\subsection{Remark.}
+
+(1) $\lim \sup (-x_{n}) = -\lim inf (x_{n})$.
+
+(2) $(x_{n}), (y_{n}) \subseteq \R$ are such that $x_{n} \leq y_{n}$ for every $n \in \N$, then 
+$$\lim_{n \to \infty} \inf (x_{n}) \leq \lim_{n \to \infty} \inf (y_{n}) \text{ and } \lim_{n \to \infty} \sup (x_{n}) \leq \lim_{n \to \infty} \sup (y_{n}).$$
+
+(3) $x_{n} \to x$ iff 
+$$\lim_{n \to \infty} \inf (x_{n}) = x = \lim_{n \to \infty} \sup (x_{n}).$$
+
+\subsection{Example.}
+
+(1) Let $\Q = (x_{n})$. Then $\lim \inf (x_{n}) = -\infty$ and $\lim \sup (x_{n}) = +\infty$.
+
+(2) If $(y_{n}) = ((-1)^{n}(1 + 1/n))$, then $\lim \inf (x_{n}) = -1$ and $\lim \sup (x_{n}) = 1$.
+
+\subsection{Definition.} Given a sequence $(x_{n}) \subseteq \C$, denote the $n$th partial sum 
+$$S_{n} = \sum_{k=1}^{n} x_{k}.$$
+If the sequence $(S_{n}) \subseteq \C$ converges, then the series 
+$$\sum_{k=1}^{\infty} = \sum x_{k}$$
+converges. Thus $S_{n} \to S$ means $\sum x_{k} = S$. If $(S_{n}) \subseteq \C$ diverges, then the series diverges.
+
+\subsection{Theorem.} $\sum x_{k}$ converges iff for every $\epsilon > 0$, there is an $N \in \N$ such that $m, n > N$ implies that 
+$$\left| \sum_{k=n}^{m} x_{k} \right| < \epsilon.$$
+
+\subsection{Proof.} This follows since convergent is equivalent to Cauchy in $\R^{2} = \C$.
+
+\newpage \newsection{Continuity}
+
+\subsection{Section.} Continuity.
+
+\subsection{Definition.} Lorem ipsum.
+
+\subsection{Example.} Lorem ipsum.
+
+\subsection{Remark.} Lorem ipsum.
+
+\subsection{Definition.} Lorem ipsum.
+
+\subsection{Remark.} Lorem ipsum.
+
+\subsection{Definition.} Lorem ipsum.
+
+\subsection{Remark.} Lorem ipsum.
+
+\subsection{Theorem.} Lorem ipsum.
+
+\subsection{Proof.} Lorem ipsum.
+
+\subsection{Remark.} Lorem ispum.
+
+\subsection{Theorem.} Compositions of continuous functions are continuous.
+
+\subsection{Proof.} Lorem ipsum.
+
+\subsection{Theorem.}
+
+(1) If $f, g: X \to \C$ are continuous, then so are $f+g$, $fg$, and $f/g$ (if $g \neq 0$).
+
+(2) If $f: X \to \R^{k}$ is continuous iff it is componentwise-wise continuous.
+
+(3) If $f, g: X \to \R^{k}$ are continuous, then so are $f+g$, $f \cdot g$, and $\lambda f$ for $\lambda \in \R$.
+
+\subsection{Proof.} Lorem ipsum.
+
+\subsection{Examples.} Lorem ipsum.
+
+\subsection{Theorem.} Let $f: X \to Y$ be continuous from a compact metric space $X$. Then $f(X)$ is compact.
+
+\subsection{Proof.} Lorem ipsum.
+
+\subsection{Remark.} Lorem ipsum.
+
+\subsection{Theorem.} Let $f: X \to Y$ be a continuous bijection from a compact metric space $X$. Then $f^{-1}: Y \to X$ is continuous.
+
+\subsection{Proof.} Lorem ipsum.
+
+\subsection{Example.} Lorem ipsum.
+
+\subsection{Theorem.} If $f: X \to \R^{k}$ is continuous from a compact metric space $X$, then $f(X)$ is closed and bounded.
+
+\subsection{Proof.} This theorem follows from Heine-Borel theorem.
+
+\subsection{Theorem.} (Extreme value) If $f: X \to \R$ is a continuous map from a compact metri space $X$, then there are $x, y \in X$ such that 
+$$f(x) = \inf f(X) \text{ and } f(y) = \sup f(X).$$
+
+\subsection{Proof.} If $X$ is nonempty, then $f(X)$ is bounded and nonempty, so $\inf f(X), \sup f(X)$ exist. Moreover, since $f(X)$ is closed, $\inf f(X), \sup f(X) \in \overline{f(X)} = f(X)$.
+
+\subsection{Definition.} Let $(X, d_{X}), (Y, d_{Y})$ be metric spaces and $f: X \to Y$. $f$ is uniformly continuous on $X$ if for every $\epsilon > 0$, there is $\delta > 0$ such that $d_{X}(x, y) < \delta$ implies $d_{Y}(f(x), f(y)) < \epsilon$ for every $x, y \in X$.
+
+\subsection{Example.} Lorem ipsum.
+
+\subsection{Theorem.} If $f: X \to Y$, is continuous and $X$ is compact, then $f$ is uniformly continuous.
+
+\subsection{Proof.} For $\epsilon > 0$, there is a $\delta_{X} > 0$ such that $d_{X}(x, y) < \delta_{x}$ implies that $d_{Y}(f(x), f(y)) < \epsilon/2$. Take the open cover 
+$$X = \bigcup_{x \in X} B(x, \delta_{x})$$
+with finite subcover 
+$$X = \bigcup_{i=1}^{n} B(x_{i}, \delta_{i})$$
+and set 
+$$\delta = \frac{1}{2} \min \{\delta_{1}, \ldots, \delta_{n}\} > 0.$$
+If $x, y \in X$, then $y \in B(x_{i}, \delta_{i})$ for some $i = 1, \ldots, n$, so $d_{X}(x, y) < \delta$ implies that 
+$$d_{X}(x, x_{i}) \leq d_{X}(x, y) + d_{X}(y, x_{i}) < \delta + \delta_{i}/2 < \delta_{i}$$
+so that 
+$$d_{Y}(f(x), f(y)) \leq d_{Y}(f(x), f(x_{i})) + d_{Y}(f(y), f(x_{i})) < \epsilon/2 + \epsilon/2.$$
+Thus, $f$ is uniformly continuous on $X$.
+
+\subsection{Theorem.} Let $E \subseteq \R$ be noncompact. 
+
+(1) There is an unbounded continuous function on $E$.
+
+(2) There is a continuous bounded function on $E$ with no maximum.
+
+(3) If $E$ is bounded, then there is a continuous function on $E$ that is uniformly continuous on $E$.
+
+\subsection{Proof.} Lorem ipsum.
+
+\subsection{Remark.} (3) fails if $E$ is unbounded by considering any function on $\Z$. (Every such function is uniformly continuous!)
+
+\subsection{Theorem.} \label{thm:images_of_connected_spaces_are_connected} If $f: X \to Y$ is continuous and $X$ is connected, then $f(X)$ is connected.
+
+\subsection{Proof.} If $f(X)$ is not connected, then there are disjoint nonempty open sets $A, B \subseteq U$ such that $f(X) \in A \cup B$. Since $f$ is continuous, $f^{-1}(A), f^{-1}(B) \subseteq X$ are disjoint nonempty sets in $X$ that union to $X$, a contradiction of the connectedness of $X$.
+
+\subsection{Theorem.} (Intermediate value) If $f: [a, b] \to \R$ is continuous and $z \in ((f(a), f(b)))$ (or $(f(b), f(a))$), then there is a $x \in (a, b)$ such that $f(x) = z$.
+
+\subsection{Proof.} By Theorem \ref{thm:images_of_connected_spaces_are_connected}, $f([a, b])$, is connected. So if $f(a) < z < f(b)$, then $z \in f([a, b])$, so there is an $a \neq x \neq b$ in $X$ with $f(x) = z$.
+
+\subsection{Definition.} If $f: X \to Y$ is not continuous at $x \in X$, then $f$ has a discontinuity at $x$.
+
+\subsection{Example.} The Heaviside function 
+$$H(x) = \begin{cases}
+    0 & \text{if } x < 0 \\
+    1 & \text{otherwise.}
+\end{cases}$$
+is discontinuous at $0$.
+
+\subsection{Definition.} Let $f: (a, b) \to Y$ and $a \leq x \leq b$. Then 
+$$f(x^{+}) = \lim{t \to x^{+}} f(t) \text{ and } f(x^{-}) = \lim_{t \to x^{-}} f(t)$$
+are the right- and left-hand limits of $f$ at $x$, respectively, if $f(t_{n}) \to f(x^{+})$ for all sequences $(t_{n}) \subseteq (x, b)$ and $(t_{n}) \subseteq (a, x)$, respectively, converging to $x$ 
+
+\subsection{Remark.} 
+$$\lim_{t \to x} f(t)$$
+exists iff 
+$$f(x^{-}) = \lim_{t \to x} f(x) = f(x^{+}).$$
+
+\subsection{Example.} Let $H$ be the Heaviside function. Then $H(0^{+}) = 1$ and $H(0^{-}) = 0$, so the limit of $H$ as $t \to 0$ does not exist.
+
+\subsection{Definition.} Let $f: (a, b) \to Y$ be discontinuous at $x \in [a, b]$.
+
+(1) $x$ is a discontinuity of the first kind of $f(x^{+}), f(x^{-})$ exist.
+
+(2) $x$ is a discontinuity of the second kind otherwise.
+
+\subsection{Example.} Lorem ipsum.
+
+\subsection{Definition.} $f: (a, b) \to \R$ is monotone if it is either increasing or decreasing, i.e, if $f(x) \leq f(y)$ or $f(y) \leq f(x)$ for $a < x \leq y < b$.
+
+\subsection{Remark.} If $f$ is both increasing and decreasing, then $f$ is constant.
+
+\subsection{Theorem.} Let $f: (a, b) \to \R$ be monotone increasing. Then $f(x^{+}), f(x^{-})$ exist for every $x \in (a, b)$. Moreover, 
+
+(1)
+$$\sup_{a < t < x} f(t) = f(x^{-}) \leq f(x) \leq f(x^{+}) = \inf_{x < t < b} f(t).$$
+
+(2) $f(x^{+}) \leq f(y^{-})$ for $a < x < y < b$.
+
+\subsection{Proof.} Lorem ipsum.
+
+\subsection{Remark.} Monotone functions have only discontinuities of the first kind.
+
+\subsection{Theorem.} Monotone functions have at most countably many discontinuities.
+
+\subsection{Example.} Lorem ipsum.
+
+\newpage \newsection{Differentiation}
+
+\subsection{Definition.} A norm on a vector space $V$ over $\C$ is a map $||\cdot||: V \to [0, \infty)$ such that for $x, y \in V$, 
+
+(1) $$||x|| = 0$$ iff $x = 0$.
+
+(2) $$||\lambda x|| = \lambda ||x||$$ for any $\lambda \in C$.
+
+(3) $||x + y|| \leq ||x|| + ||y||$.
+
+$(V, ||\cdot||)$ is called a normed vector space.
+
+\subsection{Example.}
+
+\subsection{Remark.} Any norm defines a metric since $d: V \times V \to [0, \infty)$ may be defined by 
+$$d(x, y) = ||x - y||$$
+for $x, y \in V$. This is the induced metric on $V$. If $V$ is complete with respect to its induced metric, then $V$ is a Banach space.
+
+\subsection{Example.} $(\R, |\cdot|)$ is Banach space. $(\Q, |\cdot|)$ is not.
+
+\subsection{Definition.} Let $(x_{n}) \subseteq V$ be a sequence in a normed vector space. The series $\sum x_{n}$ is said to converge in $V$ if the sequence $S_{n}$ if partial sums converges to some $x \in X$, i.e., if 
+$$\lim_{n \to \infty} ||x - \sum_{i=1}^{n} x_{i}|| = 0.$$
+
+\subsection{Theorem.} $(V, ||\cdot||)$ is a Banach space iff $\sum x_{n}$ converges in $V$ whenever $\sum ||x_{n}||$ converges in $\R$.
+
+\subsection{Proof.}
+
+($\Rightarrow$) If $(V, ||\cdot||)$ is Banach and $\sum ||x_{n}||$ converges, then for $\epsilon > 0$, set 
+$$S_{n} = \sum_{i=1}^{N} x_{i} \text{ and } T_{N} = \sum_{i=1}^{N} ||x_{i}||.$$
+$(T_{N}) \subseteq \R$ is Cauchy, so 
+$$||S_{m} - S_{n}|| \leq |T_{m} - T_{n}| < \epsilon$$
+for $m > n$ sufficiently large. Hence, $(S_{N}) \subseteq V$ is Cauchy and thus converges in $V$.
+
+($\Leftarrow$) If $\sum x_{n}$ converges whenever $\sum ||x_{n}||$ does, let $(y_{n}) \subseteq V$ be Cauchy so that for every $k \in \N$, there is an $N_{k} \in \N$ such that $||y_{m} - y_{n}|| < 2^{-k}$ if $m,n \geq N_{k}$. Setting $x_{1} = y_{N_{1}}$ and $x_{j} = y_{N_{j}} - y_{N_{j-1}}$ for $j \in \Z_{+}$ gives that 
+$$||x_{j}|| = ||y_{N_{j}} - y_{N_{j-1}}|| < 2^{-j+1}$$
+and that for $k \in Z_{+}$, 
+$$S_{k} = \sum_{i=1}^{k} x_{i} = y_{N_{k}}.$$
+Now note that for $k \in Z_{+}$, 
+$$\sum_{i=1}^{k} ||x_{i}|| \leq ||x_{1}|| + \sum_{i=2}^{k} 2^{-1+1} < ||x_{1}|| + 1,$$
+so 
+$$\left(\sum_{i=1}^{k}||x_{i}||\right) \subseteq \R$$
+is bounded and increasing and therefore convergent. By assumption, $\sum x_{i}$ converges, so 
+$$(S_{k}) = \left(\sum_{i=1}^{k} x_{i}\right) = (y_{N_{k}})$$
+converges to some $y \in V$. Thus $(y_{n})$ is a Cauchy sequence in $V$ with a convergent subsequence. An $\epsilon/2$ argument shows that $(y_{n})$ converges also, so $V$ is Banach.
+
+\subsection{Remark.} Any finite dimensional vector space is isomorphic to some Euclidean space. Does this isomorphism preserve the norm structure?
+
+\subsection{Definition.} Two norms $||\cdot||_{1}$ and $||\cdot||_{2}$ on a vector space $V$ are equivalent if there exist $A, B > 0$ such that 
+$$A||x||_{1} \leq ||x_{2}|| \leq B||x_{1}||$$
+for all $x \in V$.
+
+\subsection{Theorem.} All norms on finite dimensional vector spaces are equivalent.
+
+\subsection{Proof.} First note that the equivalence of norms is an equivalence relation. Choose a basis $\{e_{i}\}_{i=1}^{n}$ for $V$ $n$-dimensional and define the norm 
+$$\left|\left|\sum_{j=1}^{n} a_{j}e_{j} \right|\right|_{1} = \sum_{j=1}^{n} |a_{j}|$$
+for $\{a_{j}\}_{j=1}^{n} \subseteq \R$. It thus suffices to show that any norm $||\cdot||_{2}$ is equivalent to $||\cdot||_{1}||$. Note that if $x = 0$, there is nothing to show. Moreover, it suffices to show that 
+$$A||u||_{1} \leq ||u||_{2} \leq B||u_{1}||_{1}$$
+for $u \in V$ with $||u_{1}|| = 1$.
+
+By the reverse triangle inequality, if 
+$$x = \sum_{i=1}^{n} a_{i}e_{i} \text{ and } y = \sum_{i=1}^{n} b_{i}e_{i},$$
+then 
+$$|||x||_{2} - ||y||_{2}| \leq ||x - y||_{2} \leq \sum_{i=1}^{n} |a_{i} - b_{i}|||e_{i}||_{2} \leq ||x-y||_{1} \max_{i = 0, \ldots, n} \{||e_{i}||\}_{2}.$$
+Thus for $\epsilon > 0$, choose 
+$$\delta = \frac{\epsilon}{\max \{||e_{i}||_{2}\}}$$
+such that $||x - y||_{1} < \delta$ implies that $|||x||_{2} - ||y||_{2}| < \epsilon$.
+Hence, the map $||\cdot||_{2}: (V, ||\cdot||_{1}) \to [0, \infty)$ is continuous.
+
+$S = \{x \in V \mid ||x||_{1} = 1\}$ is compact. Indeed, consider 
+$$T = \left\{(a_{1}, \ldots, a_{n}) \subseteq \R \mid \sum_{i=1}^{n} |a_{i}| = 1\right\}$$
+and the map $f: T \to S$ defined by 
+$$f(a_{1}, \ldots, a_{n}) = \sum_{i=1}^{n}a_{i}e_{i}.$$
+Since $T$ is closed and bounded and thus compact by Heine-Borel Theorem, $S$ is compact if $f$ is continuous. For $\epsilon > 0$, choose $\delta = \epsilon/\sqrt{n}$ so that 
+$$|(a_{1}, \ldots, a_{n}) - (b_{1}, \ldots, b_{n})| < \epsilon/\sqrt{n}$$
+implies that 
+$$\left|\left|\sum_{i=1}^{n}(a_{i} - b_{i})e_{i}\right|\right|_{1} \leq \sqrt{n} \left(\sum_{i=1}^{n} |a_{i} - b_{i}|^{2}\right)^{1/2} < \epsilon.$$
+So $f$ is continuous and $S$ is compact. Now by Extreme Value Theorem, the image of $||\cdot||_{2}$ is bounded, so 
+$$A||u_{1}|| \leq ||u||_{2} \leq B||u_{1}||_{1}$$
+for every $y \in S$.
+
+\subsection{Remark.} All finite normed vector spaces are the same as $R^{n}$ with the absolute value. Thus, the only interesting vector spaces are those of infinite dimension. The proof relies on the fact that the unit sphere is compact in finite dimensional vector spaces. This holds iff the space is finite dimension.
+
+\subsection{Definition.} $f: [a, b]: \R$ is differentiable at $x \in [a, b]$ if the derivative of $f$ at $x$
+$$f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} = \lim_{t \to x} \frac{f(t) - f(x)}{t - x}$$
+exists. If $f$ is differentiable at every $x \in E \subseteq [a, b]$, then $f$ is differentiable on $E$ and let $f':E \to \R$ be a function.
+
+\subsection{Theorem.} If $f: [a, b] \to \R$ is differentiable at $x \in [a, b]$, then $f$ is continuous at $x$.
+
+\subsection{Proof.} If $t \neq$, then 
+$$f(t) - f(x) = \frac{f(t) - f(x)}{t - x}(t-x) \to f'(x) 0 = 0$$
+as $t \to x$. Hence, $f$ is continuous at $x$.
+
+\subsection{Example.} $f(x) = |x|$ is continuous at $0$ but not differentiable at $0$.
+
+\subsection{Theorem.} If $f,g: [a, b] \to \R$ are differntiable at $x$, then 
+
+(1) $(f+g)'(x) = f'(x) + g'(x)$.
+
+(2) (Product rule) $(fg)'(x) = f'(x)g(x) + f(x)g'(x)$.
+
+\subsection{Proof.}
+
+(1) The statement follows from limit laws.
+
+(2) Note that 
+$$f(t)g(t) - f(x)g(x) = f(t)(g(t) - g(x)) + g(x)(f(t) - f(x)),$$
+so dividing that by $(t-x)$ and letting $t \to x$ gives the product rule.
+
+\subsection{Example.} The product rule gives that $(x^{n})' = nx^{n-1}$ for $n \in \Z$ (with $x \neq 0$ for $n \leq 0$), so polynomials and rational functions are differentiable.
+
+\subsection{Theorem.} (Chain rule) If $f: [a, b] \to \R$ is continuous and $f'$ exists for some $x \in [a, b]$, and $g: I \to \R$ is differentiable at $f(x) \in I$, then 
+$$(g \circ f)'(x) = f'(x)g'(f(x)).$$
+
+\subsection{Proof.} By definition, there are $u(t), v(s) \to 0$ as $t \to x, s \to f(x)$ so that 
+\begin{align*}
+    f(t) - f(x) &= (t - x)(f'(x) + u(t)) \\
+    g(s) - g(f(x)) &= (s - f(x))(g'(f(x)) + v(s)).
+\end{align*}
+Setting $s = f(t)$, 
+\begin{align*}
+    g(f(t)) - g(f(x)) &= (f(t) - f(x))(g'(f(x)) + v(f(t))) \\
+        &= (t - x)(f'(x) + u(t))(g'(f(x) + v(f(t)))).
+\end{align*}
+Dividing both sides by $(t - x)$ and letting $t \to x$ gives the chain rule.
+
+\subsection{Example.} (Quotient rule)
+\begin{align*}
+    \left(\frac{f}{g}\right)' &= (f(g)^{-1})' \\
+        &= f'(g)^{-1} -f(g)^{-2}g' \\
+        &= \frac{f'g - fg'}{g^{2}}.
+\end{align*}
+
+\subsection{Example.} Let 
+$$f(x) = \begin{cases}
+    x^{2}\sin(1/x) & \text{if } x \neq 0 \\
+    0 & \text{if } x = 0.
+\end{cases}$$
+Then for $x \neq 0$, 
+$$f'(x) = 2x\sin(1/x) - \cos(1/x).$$
+At $x = 0$, if $t \neq 0$, then 
+$$\left|\frac{f(t) - f(0)}{t}\right| = |t\sin(1/t)| \leq |t|,$$
+so 
+$$f'(0) = 0.$$
+But 
+$$\lim_{x \to 0} \cos(1/x)$$
+does not exist, so $f'$ is not continuous.
+
+\subsection{Definition.} $f: X \to \R$ has a local maximum at $x \in X$ if there is some $\delta$ such that $d(x, y)  \delta$ implies that $f(y) \leq f(x)$. The local minimum is defined symmetrically.
+
+\subsection{Theorem.} (Fermat's) If $f: [a, b] \to \R$ has a local extremum at $x \in (a, b)$ and $f'(x)$ exists, then $f'(x) = 0$.
+
+\subsection{Proof.} Suppose, without loss of generality, that $x \in X$ is a local maximum. Thus, there is some $\delta > 0$ such that $y \in B(x, \delta)$ implies $f(y) \leq f(x)$. Hence, 
+\begin{align*}
+    \frac{f(t) - f(x)}{t - x} \geq 0 &\quad \text{if } t \in (x - \delta, x) \\
+    \frac{f(t) - f(x)}{t - x} \leq 0 &\quad  \text{if } t \in (x, x + \delta).
+\end{align*}
+So if $f'(x)$ exists, it must be zero.
+
+\subsection{Theorem.} (Mean value) If $f, g: [a, b] \to \R$ are continuous functions that are differentiable on $(a, b)$, then there is some $\xi \in (a, b)$ such that 
+$$(f(b) - f(a))g'(\xi) = (g(b) - g(a))f'(\xi).$$
+In particular, if $g(x) = x$, then 
+$$f'(\xi) = \frac{f(b) - f(a)}{b - a}.$$
+
+\subsection{Proof.} Let 
+$$h(x) = (f(b) - f(a))g(x) - (g(b) - g(a))f(x)$$
+so that $h$ is continuous on $[a, b]$ and differentiable on $(a, b)$. If $h$ is constant, then $h'(x) = 0$ for all $x \in (a, b)$. Otherwise, if $h$ is not constant, then 
+$$h(a) = h(b) = f(b)g(a) - g(b)(a),$$
+so there must be some local extremum $x \in (a, b)$ so that by the previous result $h'(x) = 0$.
+
+\subsection{Remark.} Mean Value Theorem shows that 
+
+(1) $f' \geq 0$ implies that $f$ is increasing.
+
+(2) $f' = 0$ implies that $f$ is constant.
+
+(3) $f' \leq 0$ implies that $f$ is decreasing.
+
+\subsection{Theorem.} (L'Hopital's rule) Let $f, g: (a, b)$ ($a, b$ can be $\pm \infty$) be differentiable and $g(x) \neq 0$ for $x \in (a, b)$. If 
+$$\frac{f'(x)}{g'(x)} \to A \in \overline{\R}$$
+as $x \to a$ or $x \to b$ and either $f(x), g(x) \to 0$ or $g(x) \to \infty$ as $x \to a$ or $x \to b$, then 
+$$\frac{f(x)}{g(x)} \to A \in \overline{\R}$$
+as $x \to a$ or $x \to b$.
+
+\subsection{Proof.} Lorem ipsum.
+
+\subsection{Theorem.} (Darboux's) If $f: [a, b] \to \R$ is differentiable and $z \in (f'(a), f'(b))$ (or $(f'(b), f'(a)))$, then there is some $x \in (a, b)$ such that $f'(x) = z$.
+
+\subsection{Proof.} Let $g(x) = f(x) - zx$ such that both 
+\begin{align*}
+    g'(a) &= f'(a) - z < 0 \\
+    g'(b) &= f'(b) - z > 0,
+\end{align*}
+and thus $a, b$ are not extrema of $g$. Hence, by the Extreme Value Theorem, $g$ has a local extremum $x \in (a, b)$, which by Fermat's theorem, implies that $g'(x) = 0$ iff $f'(x) = z$.
+
+\subsection{Remark.} Darboux's theorem says that the derivative of a function cannot have discontinuities of the first kind.
+
+\subsection{Theorem.} (Taylor's) Let $f: [a, b] \to \R$ and $n \in Z_{+}$ and $f^{(n-1)}$ be continuous on $[a, b]$ and $f^{(n)}$ be defined on $(a, b)$. Then if $\alpha, \beta \in [a, b]$ with $\alpha \neq \beta$, then 
+$$f(\beta) = \sum_{k=1}^{n-1} \frac{f^{(k)}(\alpha)}{k!}(\beta - \alpha)^{k} + \frac{f^{(b)}{\xi}}{n!}(\beta - \alpha)^{n}$$
+for some $\xi \in (\alpha, \beta)$. Denote 
+$$P(t) = \sum_{k=1}^{n-1} \frac{f^{(k)}(\alpha)}{k!}(t - \alpha)^{k}$$
+the $(n-1)$th order Taylor polynomial of $f$ at $\alpha$.
+
+\subsection{Remark.} Lorem ipsum.
+
+\subsection{Proof.} Lorem ipsum.
+
+\subsection{Definition.} $f: [a, b] \to \R$ is real analytic if $f^{(n)}$ exists on $(a, b)$ for every $n \in \N$ (i.e., $f$ is smooth) and for every $y \in (a, b)$, 
+$$f(x) = \sum_{k=0}^{\infty} \frac{f^{(k)}(y)}{k!}(x - y)^{k}$$
+(i.e., if $f$ is the limit of its Taylor polynomials).
+
+\subsection{Example.}
+
+(1) Polynomials, exponentials, trignometric functions, and logarithms are real analytic.
+
+(2) $|x|$ is not real analytic as it is not differentiable.
+
+(3) Let 
+$$f(x) = \begin{cases}
+    \exp(1/x) & \text{if } x > 0 \\
+    0 & \text{if } x \leq 0.
+\end{cases}$$
+Then $f$ is smooth and $f^{(b)}(0) = 0$ for every $n \in \N$. Thus, any Taylor polynomial of $f$ at $0$ is $0$, but $f(\epsilon) > 0$ for every $\epsilon > 0$, so $f$ is not real analytic.
+
+\subsection{Remark.} The definition of derivtiaves for functions $f: [a, b] \to \R^{n}$ or to $\C$ makes sense provided the correct interpretation of norms and points. All the rules (sum, product chain, differentiable implies continuous) hold with the correct interpretation (e.g., if $\R^{n}$ then $f \cdot g$ the dot product for the product rule).
+
+\subsection{Remark.} If $f: [a, b] \to \C$, then $f = f_{1} + if_{2}$ for $f_{1},f_{2}: [a, b] \to \R$, so $f' = f_{1}' + if_{2}'$. Therefore, $f$ is differentiable iff $f_{1}, f_{2}$ are differentiable. Similarly, if $f: [a, b] \to \R^{n}$, then $f = (f_{1}, \ldots, f_{n})$ for $f_{1}, \ldots, f_{n}: [a, b] \to \R$ so that $f' = (f_{1}', \ldots, f_{n}')$. Therefore, $f$ is differentiable iff $f_{1}, \ldots, f_{n}$ are.
+
+\subsection{Example.} The Mean Value Theorem and its consequences fail in the multivariate setting.
+
+(1) If $f: \R \to \C$ is defined by $f(\theta) = \exp(i\theta)$, then $f(0) = f(2\pi)$. But $|f'(\theta)| = 1$ for any $\theta \in \R$, so the Mean Value Theorem fails.
+
+(2) If $g: (0, 1) \to \C$ is defined by $g(x) = x + x^{2}\exp(1/x^{2})$ and $f: \R \to \C$ is defined by $f(x) = x$, then 
+$$\lim_{x \to 0} \frac{f(x)}{g(x)} = 1.$$
+But 
+$$g'(x) = 1 + (2x - 2i/x)\exp(1/x^{2})$$
+so that 
+$$|g'(x)| \geq -1 + |2x - 2i/x| \geq -1 2/x,$$
+so 
+$$|f'(x)/g'(x)| = 1/|g'(x)| \leq x/(2-x)$$
+implies that 
+$$\lim_{x \to 0} \frac{f'(x)}{g'(x)} = 0,$$
+so L'Hopital's rule fails too.
+
+\subsection{Remark.} Note that the Mean Value Theorem implies that for differentiable $f: [a, b] \to \R$, 
+$$|f(b) - f(a)| \leq (b - a) \sup_{a < x < b} |f'(x)|.$$
+Even though the Mean Value Theorem does not hold for multivariate functions, an analogous statement to the above holds.
+
+\subsection{Theorem.} If $f: [a, b] \to \R^{n}$ is a continuous function that is differentiable on $(a, b)$, then there is an $x \in (a, b)$ such that 
+$$|f(b) - f(a)| \leq (b - a)|f'(x)|.$$
+
+\subsection{Proof.} Let $z = f(b) - f(a)$ and define $g: [a, b] \to \R$ by settting $g(t) = z \cdot f(t)$. Then $g$ is a continuous function that is differentiable on $(a, b)$ so the Mean Value Theorem implies that 
+$$g(b) - g(a) = (b - a)g'(x) = (b - a)(z \cdot f'(x))$$
+for some $x \in (a, b)$. Note that 
+$$g(b) - g(a) = z \cdot (f(b) - f(a)) = z \cdot z = |z|^{2}$$
+and thus 
+$$|z|^{2} \leq (b - a)(z \cdot f'(x)).$$
+By the Cauchy-Schwarz inequality, 
+$$|z \cdot f'(x)| \leq |z||f'(x)|,$$
+so 
+$$|z|^{2} \leq (b - a)|z \cdot f'(x)| \leq (b - a)|z||f'(x)|.$$
+Thus, even if $z = 0$, 
+$$|z| \leq (b - a)|f'(x)|,$$
+as desired.
 
 \newpage \newsection{Sequences and series of functions}
 
@@ -304,7 +868,7 @@ for every $x \in [a, b]$.
 $$f_{n}(x) = \frac{x^{2}}{x^{2} + (1 - nx)^{2}}$$
 on $[0, 1]$ for $n \in \N$. Then $|f_{n}(x)| \leq 1$ so $(f_{n})$ is uniformly bounded. Moreover, $f_{n}(x) \to 0$ for every $x \in [0, 1]$. But $f_{n}(1/n) = 1$ for every $n \in \N$, so no subsequence converges uniformly.
 
-\subsection{Theorem.} If $(f_{n})$ is a pointwise bounded sequence of $\C$-valued functions on a countable metric spcae $(X, d)$, then there is a subsequence $(f_{n_{k}})$ that converges for every $x \in X$.
+\subsection{Theorem.} \label{thm:pointwise_bounded_sequences_on_countable_metric_spaces_have_pointwise_convergent_subsequences} If $(f_{n})$ is a pointwise bounded sequence of $\C$-valued functions on a countable metric space $(X, d)$, then there is a subsequence $(f_{n_{k}})$ that converges for every $x \in X$.
 
 \subsection{Proof.} Enumerate $X = (x_{i})$. As $(f_{n}(x_{1}))$ is bounded, there is a subsequence $(f_{k}^{1})$ of $(f_{n})$ such that $f_{k}^{1}(x_{1})$ converges as $k \to \infty$. As $f_{k}^{1}(x_{2})$ is bounded, there is a subsequence $(f_{k}^{2})$ of $(f_{k}^{1})$ such that $(f_{k}^{2}(x_{2}))$ converges as $k \to \infty$. Continuing inductively, consider the subsequence $(f_{k}^{l+1})$ of $f_{k}^{l}$ such that $(f_{k}^{l+1})(x_{l+1})$ converges as $k \to \infty$. Choose the diagonal subsequence $(f_{k}^{k})$ of $(f_{n})$ such that $(f_{k}^{k})(x_{i})$ converges for every $i \in \N$ since $(f_{k}^{k})$ is a subsequence of $(f_{k}^{i})$ for $k \geq i$ by construction. Reindexing $(f_{k}^{k}) = (f_{n_{k}})$ for every $k \in \N$ gives the desired subsequence.
 
@@ -336,5 +900,71 @@ on $[0, 1]$ is uniformly bounded, converges pointwise to $0$, but has no uniform
 (3) $\mathcal{H} = (\arctan (nx))$ is not equicontinuous since $\arctan (nx) \to \pm \pi/2$ if $x >/< 0$.
 
 \subsection{Theorem.} Let $(K, d)$ be compact and $(f_{n}) \subseteq \mathcal{C}(K)$. Then if $(f_{n})$ converges uniformly on $K$, then $(f_{n})$ is equicontinuous on $K$.
+
+\subsection{Proof.} Let $\epsilon > 0$ and note that $(f_{n})$ is uniformly Cauchy such that there is an $N \in \N$ such that $m, n \geq \N$ implies 
+$$||f_{n} - f_{m}|| < \epsilon/3.$$
+Now as continuous functions on compact sets are uniformly continuous, there is a some $\delta_{i} > 0$ for each $i \in \N$ such that $d(x, y) < \delta_{i}$ implies that 
+$$|f_{i}(x) - f_{i}(y)| < \epsilon/3.$$
+Hence, for $n \geq \N$ and $\delta_{N} > 0$, 
+$$|f_{n}(x) - f_{n}(y)| \leq |f_{n}(x) - f_{N}(x)| + |f_{N}(x) - f_{N}(y)| + |f_{N}(y) - f_{n}(y)| < \epsilon/3 + \epsilon/3 + \epsilon/3$$
+if $d(x, y) < \delta_{N}$. Setting 
+$$\delta = \min \{\delta_{1}, \ldots, \delta_{N}\}$$
+gives $d(x, y) < \delta$ implying that 
+$$|f_{n}(x) - f_{n}(y)| < \epsilon$$
+for every $n \in \N$ so that $(f_{n})$ is equicontinuous.
+
+\subsection{Lemma.} \label{lem:countable_sets_are_separable} Compact sets of metric spaces are separable.
+
+\subsection{Proof.} Let $(K, d)$ be compact. If $K$ is at most countable, then $K$ is separable. Otherwise, for every $n \in \N$, consider the cover 
+$$K \subseteq \bigcup_{x \in K} B(x, 1/n).$$
+Since $K$ is compact, there is a finite subcover 
+$$K \subseteq \bigcup_{i=1}^{L_{n}} B(x_{i}^{n}, 1/n).$$
+Define the set 
+$$E = \cup_{n=1}^{\infty} \{x_{i}^{n}\}_{i=1}^{L_{n}},$$
+which is at most countable. If $U \subseteq K$ is open, then for every $x \in U$, there is some $\delta > 0$ such that $B(x, \delta) \subseteq U$. For $n \geq 1/\delta$, there is some $x_{i}^{n} \in E$ such that $d(x, x_{i}^{n}) < 1/n \leq \delta$ so that $x_{i}^{n} \in U$ also. So $E \cap U$ is nonempty, so $E$ is dense in $K$.
+
+\subsection{Theorem.} (Arzela-Ascoli) Let $(K, d)$ be a compact metric space and let $(f_{n}) \subseteq \mathcal{C}(K)$. Then if $(f_{n})$ is pointwise bounded and equicontinuous on $K$, then both 
+
+(1) $(f_{n})$ is uniformly bounded on $K$.
+
+(2) $(f_{n})$ has a uniformly convergent subsequence.
+
+\subsection{Proof.}
+
+(1) Choose $\delta > 0$ from the equicontinuity of $(f_{n})$ such that $d(x, y) < \delta$ implies that 
+$$|f_{n}(x) - f_{n}(y)| < 1$$
+for all $n \in \N$. By the compactness of $K$, there are $x_{1}, \ldots, x_{L} \in K$ such that 
+$$K \subseteq \bigcup_{i=1}^{L} B(x_{i}, \delta),$$
+and since $(f_{n})$ is pointwise bounded, there are $M_{1}, \ldots, M_{L} > 0$ such that 
+$$|f_{n}(x_{i}) \leq M_{i}$$
+for every $i = 1, \ldots, L$. Then 
+$$|f_{n}(x) \leq 1 + \max \{M_{1}, \ldots, M_{L}\},$$
+for every $n \in \N$, so $(f_{n})$ is uniformly bounded on $K$.
+
+(2) Let $E \subseteq K$ be a dense countable subset by Lemma \ref{lem:countable_sets_are_separable}. Now as $(f_{n})$ is pointwise bounded on $E \subseteq K$ and $E$ is at most countable, there is a pointwise convergent subsequence $(f_{n_{k}})$ of $(f_{n})$ on $E$ by Theorem \ref{thm:pointwise_bounded_sequences_on_countable_metric_spaces_have_pointwise_convergent_subsequences}. Denote this sequence $(g_{k}) = (f_{n_{k}})$. The claim is that $(g_{k})$ is uniformly convergent. Let $\epsilon > 0$ and choose $\delta > 0$ from the equicontinuity of $(g_{k})$ such that $d(x, y) < \delta$ implies that 
+$$|g_{k}(x) - g_{k}(y)| < \epsilon/3$$
+for every $k \in \N$. For $n \geq 1/\delta$, let 
+$$K \subseteq \bigcup_{i=1}^{L_{n}} B(x_{i}^{n}, \delta)$$
+for $\{x_{i}^{n}\}_{i=1}^{L_{n}} \subseteq E$ by the construction in Theorem \ref{lem:countable_sets_are_separable}. As $(g_{k})$ is pointwise convergent on $E$, there is some $N \in \N$ such that $l, m \geq \N$ implies that 
+$$|g_{l}(x_{i}^{n}) - g_{m}(x_{i})^{n}| < \epsilon/3$$
+for every $i = 1, \ldots L_{n}$. Now if $x \in K$, then $x \in B(x_{i}^{n}, \delta)$ for some $i = 1, \ldots, L_{n}$, so for $l, m \geq \N$, 
+$$|g_{l}(x) - g_{m}(x)| \leq |g_{l}(x) - g_{l}(x_{i}^{n})| + |g_{l}(x_{i}^{n}) - g_{m}(x_{i}^{m})| + |g_{m}(x_{i}^{m}) - g_{m}(x)| < \epsilon/3 + \epsilon/3 + \epsilon/3,$$
+so $(g_{k})$ is uniformly Cauchy and hence uniformly convergent by the completeness of $\mathcal{C}(K)$.
+
+\subsection{Example.}
+
+(1) Compactness is necessary for Arzela-Ascoli Theorem. If $\mathcal{F} = (f)$ (a constant sequence), then equicontinuity is equivalent to uniform continuity. But every affine function $f(x) = ax + b$ on $\R$ is uniformly continuous but not uniformly bounded.
+
+(2) Equicontinuity is necessary for Azela-Ascoli Theorem. COnsider the example 
+$$\mathcal{G} = \left( \frac{x^{2}}{x^{2} + (1 - nx)^{2}} \right),$$
+which uniformly and hence pointwise bounded, but has no uniformly convergent subsequence.
+
+(3) Pointwise boundedness if necessary for Arzela-Ascoli Theorem. $\mathcal{H} = (n)$ is equicontinuous on $[0, 1]$ but is not pointwise bounded. It is not uniformly bounded, nor does it have a convergent subsequence.
+
+\subsection{Remark.} The Arzela-Ascoli theorem has deep implications for the study of differential equations. Its proof involves the combination of almost all the concepts of this course.
+
+\subsection{Example.} If $\mathcal{F} = (f_{n})$, a sequence of differentiable functions on $[0, 1]$ with $(f_{n}')$ uniformly bounded, then $\mathcal{F}$ is equicontinuous by the Mean Value Theorem. If $f_{n}$ are uniformly Holder continuous on a compact metric space $(X, d)$ for every $n \in \N$, i.e., if $(f_{n})$ are $\C$-valued and for some $\alpha \in (0, 1]$ and $M > 0$, 
+$$|f_{n}(x) - f_{n}(y)| \leq M d(x, y)^{\alpha}$$
+for every $n \in \N$ and $x, y \in X$, then $(f_{n})$ is equicontinuous. (If $\epsilon > 0$, let $\delta = (\epsilon/M)^{\alpha}$ so that $M d(x, y)^{\alpha} < \epsilon$.) Hence, Arzela-Ascoli Theorem applies if $(f_{n})$ is pointwise bounded to guarantee that $(f_{n})$ is uniformly bounded and contains a uniformly convergent subsequence. The $\alpha$ Holder space $\mathcal{C}^{0,\alpha}(X)$ is the set of all $\alpha$-Holder continuous functions on $X$. If $X$ is compact, then $\mathcal{C}^{0,\alpha} \hookrightarrow \mathcal{C}$ is a "compact embedding" as every bounded sequence has a convergent subsequence.
 
 \end{document}
